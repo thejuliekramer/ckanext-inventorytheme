@@ -47,7 +47,7 @@ Output all USWDS
 @import 'elements/typography';
 
 // Components
-// -------------------------------------
+// -------------------------------------å
 @import 'components/accordions';
 @import 'components/alerts';
 @import 'components/banner';
@@ -77,7 +77,7 @@ Output all USWDS
 @include render-utilities-in($utilities-package);
 
 
-// Custom Theming for Ed potal 
+// Custom Theming for inventory portal
 // General file contains the portal wide codes, while each page specific scss file contains page specific styles
 @import 'theme/custom-general';
 @import 'theme/custom-about';

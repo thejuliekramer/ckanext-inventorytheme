@@ -11,20 +11,20 @@ sass.compiler = require('node-sass');
 
 // Rebuild css from Sass
 gulp.task('sass', function () {
-  return gulp.src('ckanext/ed/fanstatic/sass/**/*.scss')
+  return gulp.src('ckanext/inventorytheme/fanstatic/sass/**/*.scss')
     .pipe(sass({
          outputStyle : 'compressed'
       }).on('error', sass.logError))
-    .pipe(gulp.dest('ckanext/ed/fanstatic/css'))
+    .pipe(gulp.dest('ckanext/inventorytheme/fanstatic/css'))
 
     .pipe(minCss())
       .pipe(rename({ extname: '.min.css' }))
-      .pipe(gulp.dest('ckanext/ed/fanstatic/css'))
+      .pipe(gulp.dest('ckanext/inventorytheme/fanstatic/css'))
 });
 
 // Rebuild CSS from LESS
 gulp.task('less', function () {
-  return gulp.src('ckanext/ed/fanstatic/less/custom.less')
+  return gulp.src('ckanext/inventorytheme/fanstatic/less/custom.less')
   // .pipe(sourcemaps.init()) - Uncomment when developing
   .pipe(less())
   .pipe(cleanCSS({
@@ -37,13 +37,13 @@ gulp.task('less', function () {
     ]
   }))
   // .pipe(sourcemaps.write()) - Uncomment when developing
-  .pipe(gulp.dest('ckanext/ed/fanstatic/css'));
+  .pipe(gulp.dest('ckanext/inventorytheme/fanstatic/css'));
 });
 
 // Watch for LESS file changes
 gulp.task('watch', function () {
-  gulp.watch(['ckanext/ed/fanstatic/less/**/*.less'], gulp.parallel('less'));
-  gulp.watch(['ckanext/ed/fanstatic/sass/**/*.scss'], gulp.parallel('sass'));
+  gulp.watch(['ckanext/inventorytheme/fanstatic/less/**/*.less'], gulp.parallel('less'));
+  gulp.watch(['ckanext/inventorytheme/fanstatic/sass/**/*.scss'], gulp.parallel('sass'));
 });
 
 
