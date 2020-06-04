@@ -1,0 +1,52 @@
+/* Styles for Publishers */
+
+#organization-search-form, #organization-datasets-search-form {
+    padding-bottom: 30px;
+
+    //Fixing the search input for publishers
+    .search-input-group {
+        width:100%;
+        position: relative;
+
+        input {
+            border: 0;
+            box-shadow: 0 0 0;
+            padding: 5px 0px 15px 50px;
+            border-bottom: 1px solid #d2d2d2;
+        }
+
+	input::placeholder {
+	   color: #6d6d6d;
+	}
+
+        //chaing the position of search btn
+        .input-group-btn {
+            position:absolute;
+            top: 3px;
+            left: 14px;
+            z-index:999;
+
+            button{
+                padding:0;
+                border:0;
+                background: transparent;
+                width: 18px;
+                height: 18px;
+                color:$theme-color-alternate;
+            }
+        }
+    }
+}
+
+//Heading size reduced
+.context-info h1.heading {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+
+.activity .item p {
+    padding-top:5px;
+    margin-top:0;
+}

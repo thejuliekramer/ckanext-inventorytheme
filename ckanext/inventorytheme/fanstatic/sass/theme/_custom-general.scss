@@ -1,0 +1,918 @@
+/***** Custom codes after import ******/
+/** General Styles that are applied across the ed-portal **/
+
+
+/* Custom Variables - These variables are calculated and changed for various screens and scenarios  */
+$fixedTop-padding: 1px;
+@mixin homeCategoryHeight($base-height) {
+
+    .col-links-1, .col-links-2 {
+        height: $base-height;
+    }
+
+    .col-tags {
+        height: $base-height;
+    }
+}
+
+@mixin customGridWidths($sideBar) {
+
+    .sidebar,.inner-sidebar {
+        width:$sideBar;
+    }
+
+    .content-main,.inner-primary {
+        width:calc(100% - #{$sideBar});
+        min-height:100vh;
+    }
+
+    .sidebar_content_wrap.fixed {
+        width:$sideBar;
+    }
+}
+
+
+/* Loading up the  Fonts */
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 900;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-Black.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-Black.woff) format("woff"), url(../fonts/public-sans/PublicSans-Black.ttf) format("truetype"); 
+}
+
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 800;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-ExtraBold.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-ExtraBold.woff) format("woff"), url(../fonts/public-sans/PublicSans-ExtraBold.ttf) format("truetype"); 
+}
+
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 600;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-SemiBold.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-SemiBold.woff) format("woff"), url(../fonts/public-sans/PublicSans-SemiBold.ttf) format("truetype"); 
+}
+
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 500;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-Medium.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-Medium.woff) format("woff"), url(../fonts/public-sans/PublicSans-Medium.ttf) format("truetype"); 
+}
+
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 300;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-Light.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-Light.woff) format("woff"), url(../fonts/public-sans/PublicSans-Light.ttf) format("truetype"); 
+}
+
+@font-face {
+    font-family: Public Sans Web;
+    font-style: normal;
+    font-weight: 100;
+    font-display: fallback;
+    src: url(../fonts/public-sans/PublicSans-Thin.woff2) format("woff2"), url(../fonts/public-sans/PublicSans-Thin.woff) format("woff"), url(../fonts/public-sans/PublicSans-Thin.ttf) format("truetype"); 
+}
+    
+
+// Styling the typography, using functions from USWDS-2.0
+h1{
+    @include typeset($theme-font-role-ui,'xl',1);
+    @include u-text('normal');	
+    color:$theme-color-main;
+}
+
+h2,h3,h4,h5,h6 {
+    @include typeset($theme-font-role-ui,'lg',1);
+    font-weight:600;
+    color:$theme-color-main;
+}
+
+body,a,p {
+    @include typeset($theme-font-role-heading,'xs',2);
+}
+
+body {
+    color: $theme-color-alternate;
+    padding-top:60px;
+
+    @media screen and (max-width:767px){
+        padding-top:66px;
+    }
+}
+[role=main], .main {
+    padding-top: 0;
+    padding-bottom:0;
+    background: #fff;
+}
+
+h2.module-heading {
+    @include u-text(600)	
+}
+
+a:hover,a:active,a:focus,a:visited {
+    text-decoration:none;
+}
+
+.page-name {
+    opacity:0;
+    display:none;
+    visibility: hidden;
+    height:0;
+    width:0;
+}
+
+/* Page Navbar - Sticky */
+
+header.account-masthead {
+    @include u-bg('gray-5');
+    width:100%;
+    z-index:100;
+    position:relative;
+
+    .account ul li {
+        border-left: 0;
+    }
+
+    .account ul li a {
+        color: $theme-color-main !important;
+    }
+
+    .account ul li a:hover,.account ul li a:active,.account ul li a:focus {
+        color: $theme-color-main !important;
+        @include u-bg('gray-cool-10');
+    }
+}
+
+//Stying the page header
+header.masthead {
+    width:100%;
+    margin-bottom: initial;
+    padding: 6px 0 4px 0;
+    color: #fff;
+    background:$theme-color-main !important;
+    z-index:100;
+    min-height:60px;
+    margin-bottom:0;
+
+    @media screen and (max-width:767px){
+        min-height:66px;
+    }
+
+    border-bottom:2px solid #0f3353;
+    
+    .nav-logo {
+        padding:0;
+        margin-left:15px;
+        margin-right:60px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: .5px;
+        font-weight:700;
+
+        img {
+            margin-top: -2px;
+        }
+    }
+
+    hgroup h1, hgroup h2 {
+        float: left;
+        line-height: 1;
+    }
+
+    // Navlinks in the bootstrap navigation
+    .nav > li {
+        padding: 0 16px;
+
+        @media screen and (max-width:767px){
+            padding: 0 15px;
+
+            a {
+                padding:10px 0;
+            }
+        }
+    }
+    .nav > li > a {
+        position: relative;
+        display: block;
+        font-weight:600;
+        @include u-font-size('body', '2xs');
+    }
+
+    .nav-pills li a:hover,.nav-pills li a:focus, .nav-pills li.active a {
+        background-color: transparent !important;
+        @include u-text('gray-cool-10');
+    }
+
+    .nav > li > a.usa-button--outline {
+        box-shadow: inset 0 0 0 2px $theme-color-alternate;
+
+        @media screen and (min-width:768px){
+            margin-left: 8px;
+        }
+
+        @media screen and (max-width:767px){
+            margin-top:10px; 
+        }
+    }
+
+    .nav-pills {
+        margin-top:7px;
+    }
+
+    .navbar-collapse {
+        padding: 0 0; 
+    }
+
+    //Making the website search round and move the search icon to the left
+    .site-search {
+        width:36%;
+
+        input {
+            width: 100%;
+            border-radius:100px;
+            height: 32px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            padding: 5px 10px 5px 45px;
+            background-color:#224362;
+            border:0;
+            color:#fff;
+            @include u-font-size('body', 'xs');
+        }
+
+        input::placeholder {
+            color:#bcc6cf;
+        }
+
+        .btn-search { 
+            left:15px;
+
+            color: #fff;
+
+            i:hover,i:active,i:focus,i:visited {
+                color: #eee;
+            }
+        }
+    }
+}
+
+/* Styling the page footer */
+.site-footer {
+    background-color:$theme-color-alternate-dark !important;
+    background-image:none;
+    color:#fff;
+    position:relative;
+    z-index:10;
+
+    li {
+        @include u-font-size('body', 'xs')
+    }
+
+    a{
+        color:#fff;
+        @include u-font-size('body', 'xs')
+    }
+
+    @media screen and (min-width:992px) {
+        .footer-links {
+            text-align:right;
+            .list-unstyled {
+                padding:16px 0;
+                li {
+                    display:inline;
+                    padding:0 16px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:992px){
+        .footer-links {
+            .list-unstyled {
+                padding:8px 0;
+                li {
+                    padding:4px 0;
+                }
+            }
+        }
+    }
+    
+
+    /* Ed Logo in the footer */
+    .footer-logo, .footer-logo-content {
+        float:left
+    }
+
+    .footer-logo-content{
+        padding-left:12px;
+        .main-text {
+            @include u-text('bold');	
+            @include u-font-size('body', 'xs');
+            margin:8px 0 2px 0;
+        }
+
+        .subtext {
+            @include u-text('light');	
+            @include u-font-size('body', '2xs')
+        }
+    }
+}
+
+
+/* Overall Styles -  These are the general styles that are applied throughout the portal */
+
+//wrapper custom is used as overall wrapper to the pages to apply styles on top of CKAN, all the pages need to be wrapped in wrapper-custom
+.wrapper-custom {
+    border:0;
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 0 0 transparent;
+    position: relative;
+
+    p,ul {
+        padding-top:15px;
+        @include typeset($theme-font-role-heading,'xs',6);
+    }
+
+    .page-header {
+        background-color:transparent;
+
+        .nav-tabs {
+            padding-top:0px;
+        }
+        
+        .nav-tabs > li {
+            margin-right:30px;
+        }
+        
+        .nav-tabs > li > a {
+            color:$theme-color-main;
+            font-weight:700;
+            @include typeset($theme-font-role-ui,'xs',1);
+        
+            border-left:0;
+            border-top:0;
+            border-right:0;
+            border-bottom:3px solid transparent;
+        
+            padding: 10px 15px 13px;
+        
+            i.material-icons {
+                position: relative;
+                top: 6px;
+                min-height:24px;
+                min-width:24px;
+            }
+        }
+        
+        .nav-tabs > li.active > a {
+            border-left:0;
+            border-top:0;
+            border-right:0;
+            color:$theme-color-blue;
+            border-bottom:3px solid $theme-color-blue;
+        
+        }
+        
+        .nav-tabs > li > a:hover {
+            border-left:0;
+            border-top:0;
+            border-right:0;
+            border-bottom:3px solid #ddd;
+        }
+    }
+}
+
+.wrapper-custom.row {
+    margin-left:0;
+    margin-right:0;
+}
+
+#content.container-fluid {
+    padding:0;
+}
+
+.wrapper-custom {
+    background-color:$theme-grey-light;
+}
+
+.content-main {
+    float:left;
+    background-color:#fff;
+    padding-bottom:50px;
+}
+
+//Sidebar for pages like search and about etc. 
+.sidebar {
+    min-height: 100vh;
+    padding: 10px 0 20px 0;
+    float:left;
+    color:$theme-color-main;
+
+    //Styles specific to sidebar
+    .sidebar_content_wrap {
+        max-height:90vh;
+        overflow-y:auto;
+        padding-bottom:150px;
+
+        top:calc(50px + #{$fixedTop-padding});
+        position:relative;
+        width:100%;
+    }
+
+    .sidebar_content_wrap.fixed {
+        top:calc(20px + #{$fixedTop-padding});
+        position:fixed;
+        top:80px;
+    }
+
+    h4.side-heading {
+        font-weight: 600;
+        @include u-font-size('body', '2xs');
+        color: $theme-color-main;
+        padding-left:30px;
+        padding-right:20px;
+        padding-top:18px;
+    }
+
+    .side-content {
+        padding-left:30px;
+        padding-right:20px;
+    }
+
+    .sidebar-nav {
+        li {
+            a{
+                padding-left:30px;
+                padding-right:20px;
+                color:$theme-color-main;
+                font-weight: 300;
+            }
+        }
+
+        li.active {
+            border-right:4px solid color($theme-color-primary) ;
+
+            a {
+                font-weight: 600;
+                background-color:$theme-grey-dark;
+            }
+
+            a:hover {
+                background-color:$theme-grey-dark;
+            }
+        }
+
+        padding-bottom:10px;
+        border-bottom:0px solid color($theme-color-base-lighter);
+
+
+        .usa-checkbox__label {
+            span {
+                color: #25610e;
+                @include u-font-size('body', '3xs');
+                padding-left: 12px;
+            }
+        }
+    }
+    //Overriding the modules from CKAN
+    .nav,.module-content {
+        padding-left: 30px;
+        padding-right: 20px;
+    } 
+    
+    .module-footer {
+        border-top:0;
+        padding: 0 20px 20px 30px;
+        border-bottom:1px solid color($theme-color-base-lighter);
+        a {
+            font-weight:400;
+            color:$theme-color-main;
+        }
+    }
+
+    .tag-custom {
+        display:inline-block;
+        margin-bottom: 2px;
+        margin-right: 2px;
+    }
+
+
+    .side-holder {
+        border-bottom:1px solid color($theme-color-base-lighter);
+        padding-top:40px;
+        padding-bottom:30px;
+
+        h4 {
+            @include u-font-size('body', '2xs');
+        }
+
+        p {
+            @include u-font-size('body', '2xs');
+            @include typeset($theme-font-role-heading,'2xs',3);
+            color:$theme-color-alternate;
+        }
+    }
+
+    .hierarchy-tree-top {
+        padding:5px;
+        list-style: none;
+
+
+        li.highlighted > a, ul.hierarchy-tree li.highlighted > a {
+            font-weight:400;
+            color:$theme-color-alternate;
+            text-shadow: 0px 0px #dddddd;
+        }
+
+        li:last-child {
+            background: transparent;
+        }
+
+        li {
+            a {
+                font-weight:400;
+                color:$theme-color-alternate-dark;
+            }
+        }
+    }
+
+    .module-content {
+        h1.heading {
+            @include u-font-size('body', '2xs');
+            font-weight:600;
+            padding-top:20px;
+        }
+    
+        p {
+            @include u-font-size('body', '3xs');
+            color:$theme-color-alternate;
+        }
+    }
+}
+
+//Sidebar styling
+.sidebar .nav, .sidebar .module-content {
+    padding-left: 0px; 
+    padding-right: 0px;
+}
+
+.nav.pad-left,.sidebar .module-content {
+    padding-left:30px;
+    padding-right:20px;
+}
+
+.module-content {
+    padding: calc(55px + #{$fixedTop-padding}) 30px 40px 45px;
+}
+
+.card-custom-home {
+    padding:20px;
+    border:2.5px solid $theme-grey-darker;
+    border-radius: 4px;
+    margin-top:24px;
+    background-color: #fff;
+}
+
+.card-custom {
+    padding:20px;
+    border:4px solid $theme-grey-darker;
+    margin-top:24px;
+    background-color: #fff;
+}
+
+.card-custom-plain {
+    border:2.5px solid $theme-grey-darker;
+    border-radius: 4px;
+    background-color:#fff;
+}
+
+.shadow {
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+}
+
+p.clearfix {
+    height:auto;
+    padding:0;
+    margin:0;
+}
+
+//Tag custom class to style the ckan tags
+.tag-custom,.label-inverse {
+    background-color:$theme-grey-medium;
+    color:$theme-color-alternate-dark;
+    @include typeset($theme-font-role-ui,'3xs',1);
+    padding: 4px 6px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    display:table;
+    text-transform: lowercase;
+
+    span {
+        font-size:.7rem;
+    }
+}
+
+.tag-custom.True {
+    background-color:$theme-color-blue;
+    color:#fff;
+}
+
+.tag-custom:hover {
+    background-color:$theme-grey-darker;
+}
+
+.tag-custom.True:hover {
+    background-color:color($theme-color-primary);
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+    top: 12px !important;
+    bottom: 12px !important;
+    width: 4px;
+}
+
+.simplebar-scrollbar:before {
+    background: #cecece !important;
+}
+
+//Labels and Bootstrap Form styles are overridden
+
+label:after {
+    content: "";
+}
+
+.form-control {
+    border-radius: 0;
+    color: #555;
+    border-color: #cacaca;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 40px;
+}
+.control-label,.field-username {
+    font-weight:400;
+}
+
+.form-group label {
+    font-weight:400;
+}
+.pad-bottom-0{
+    padding-bottom:0;
+    margin-bottom:0;
+}
+
+.pad-none {
+    padding:0;
+}
+
+.pad-none.pad-right{
+    padding-right:10px;
+}
+
+.md-align-right
+{
+    text-align:right;
+
+    @media screen and (max-width:767px){
+        text-align:left;
+    }
+}
+
+.context-info .nums {
+    text-align:center;
+    color:$theme-color-main;
+
+    span {
+        color:$theme-color-main;
+        font-weight:300;
+    }
+}
+@include customGridWidths(20.5%);
+
+
+/* Over riding primary bootstrap button */
+.btn.btn-primary {
+    @include typeset($theme-font-role-heading,'xs',1);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    appearance: none;
+    background-color: #2378c3;
+    border: 0;
+    border-radius: .25rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: .5rem;
+    padding: .75rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+
+    
+}
+
+.btn.btn-primary:hover, 
+.btn.btn-primary:active {
+        background-color: #1a4480;
+        border-bottom: 0;
+        color: #fff;
+        text-decoration: none;
+}
+
+.page-advanced {
+    .btn.btn-default,.btn.btn-large {
+        @include u-font-size('body', '2xs');
+        line-height: .93923;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: #005ea2;
+        border: 0;
+        border-radius: .25rem;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 700;
+        margin-right: .5rem;
+        padding: .75rem 1.25rem;
+        text-align: center;
+        text-decoration: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+        background-color: transparent;
+        -webkit-box-shadow: inset 0 0 0 2px #005ea2;
+        box-shadow: inset 0 0 0 2px #005ea2;
+        color: #005ea2;
+        
+    }
+    
+    .btn.btn-default:hover,.btn.btn-large:hover {
+        background-color: transparent;
+        -webkit-box-shadow: inset 0 0 0 2px #1a4480;
+        box-shadow: inset 0 0 0 2px #1a4480;
+        color: #1a4480;
+    }
+    
+    .btn-default:active:focus {
+        background-color: transparent;
+        -webkit-box-shadow: inset 0 0 0 2px #1a4480;
+        box-shadow: inset 0 0 0 2px #1a4480;
+        color: #1a4480;
+    }
+}
+
+
+
+.js .tab-content.active {
+    padding-top:0;
+
+    h2 {
+        margin-top:5px;
+    }
+}
+
+.side-content-extended {
+    h4 {
+        padding-left:30px;
+        padding-right:20px;
+    }
+}
+
+
+/* Styling the Tables */
+.table {
+    border:3px solid $theme-grey-darker;
+
+    thead {
+        tr {
+            th {
+                text-transform: uppercase;
+                font-weight:600;
+                color:$theme-color-main;
+                @include u-font-size('body', '3xs');
+                vertical-align: middle;
+            }
+        }
+        
+    }
+
+    tbody {
+        tr {
+            td,th {
+                @include u-font-size('body', '3xs');
+                font-weight:400;
+                color:$theme-table-grey;
+
+                a {
+                    @include u-font-size('body', '3xs');
+                }
+            }
+        }
+    }
+    
+}
+
+
+.usa-table {
+    width:100%;
+    color:#171717;
+
+    thead,tbody {
+        tr {
+            th,td {
+                border-color:$theme-grey-darker;
+            }
+        }
+    }
+    
+}
+
+.clear-all {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: 20px;
+    background-color: $theme-color-blue;
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    top: 30px;
+    border-radius: 100px;
+}
+
+.clear-all:hover,.clear-all:focus {
+    color:#fff !important;
+    background-color:#1a4480;
+}
+
+.err-content {
+    h1 {
+        font-size:3em !important;
+        padding-bottom:20px;
+    }
+
+    .warning {
+        opacity:.6;
+        margin-bottom:20px;
+    }
+}
+
+.simple-input label {
+    display:block;
+    position:absolute;
+    clip:rect(0 0 0 0)
+}
+
+.skip-content {
+    position: absolute;
+    z-index: 20;
+    color: #f9f9f9;
+    font-weight: bold;
+    opacity: 0;
+    display: block;
+    width: 100%;
+    background: #00274a;
+}
+
+.skip-content:focus {
+    opacity:1;
+    color: #bfbfbf;
+}
+
+
+/* Updating the default outlines to be slimmer */
+input:not([disabled]):focus,input:not([disabled]):active, select:not([disabled]):focus,select:not([disabled]):active, textarea:not([disabled]):focus,textarea:not([disabled]):active, button:not([disabled]):focus,button:not([disabled]):active {
+    outline: .05rem solid #2491ff;
+    outline-offset: 0;
+}
+
+iframe:focus, iframe:active, [href]:focus, [href]:active, [tabindex]:focus, [tabindex]:active, [contentEditable=true]:focus, [contentEditable=true]:active {
+    outline: .15rem solid #2491ff;
+    box-shadow: 0px 0px 7px #94c9ff;
+    outline-offset: 0;
+}
+
+.empty,.form-group .info-block {
+    color: #636363 !important;
+}
+
+a.feedback_mail {
+    cursor:pointer;
+}
+
+.terms ul li {
+    color:#00274A;
+    margin-bottom:10px;
+}
+
+.usa-checkbox__input:checked+.usa-checkbox__label::before, .usa-checkbox__input:checked:disabled+.usa-checkbox__label::before {
+    background-image: url('/base/images/correct8.svg'),linear-gradient(transparent, transparent);
+}

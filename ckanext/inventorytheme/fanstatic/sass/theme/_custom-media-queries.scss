@@ -1,0 +1,317 @@
+/* Media Queries and styles for responsive */
+
+// For Mobile Phones and Tablets
+@media screen and (max-width:767px){ 
+    header.masthead .navbar-collapse {
+        padding: 0 0 20px 0;
+    }
+
+    .container-fluid {
+        //padding: 0 15px !important;
+        padding:0 !important;;
+    }
+    @include customGridWidths(0%);
+
+    //Setting up the sidebar widths and design updates
+    .sidebar {
+
+        .sidebar_content_wrap {
+            padding-bottom:0;
+        }
+    }
+
+    .sidebar.secondary {
+        height:auto;
+        min-height: 0;
+        width:100%;
+        position:relative;
+        z-index:120;
+    }
+
+    .module-content {
+        padding-left: 5px;
+        padding-right:5px;
+    }
+
+    //Homepage responsive updates
+    .hero {
+        .hero-content {
+            padding:40px 10px 0 0px;
+        }
+    }
+
+    .home-categories {
+        margin: 48px 0px;
+    }
+
+    .trending-new {
+        margin: 20px 0 70px 0;
+    }
+
+
+    // Dataset Search Page style updates 
+    .search-form {
+        label {
+            padding-left:0;
+        }
+        h2 {
+            top:0;
+        }
+        .control-order-by {
+            text-align:left;
+        }
+    }
+
+    .sidebar_content_wrap.fixed {
+        position: static !important;
+        top: 0 !important;
+    }
+
+    .pad-none.pad-right{ 
+        padding-right:0;
+    }
+
+    .clear-all { 
+        margin-left:0;
+    }
+
+    .dataset-item .dataset-total-views span {
+        display:block;
+        margin-bottom:15px;
+    }
+
+    .navbar-toggle {
+        margin-right: 15px;
+    }
+
+    .dataset-item .font-body-3xs {
+        line-height: 1.5;
+    }
+
+    .js body.filters-modal .secondary .filters {
+        margin-top:66px;
+    }
+
+    // Publishers page Updates
+    .context-info .image img {
+        height:auto;
+        width:100%;
+    }
+    .nav.pad-left, .sidebar .module-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .module-content h1 {
+        font-size:1.5rem;
+    }
+
+    // Resetting the page header paddings
+    .page-header.module-content {
+        padding-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: 0;
+    }
+    .wrapper-custom .page-header .nav-tabs {
+        width:100%;
+        margin:0;
+    }
+    .wrapper-custom .page-header .nav-tabs>li {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .wrapper-custom .page-header .nav-tabs>li:last-child {
+        margin-bottom:0;
+    }
+
+    .wrapper-custom .page-header .nav-tabs>li.active>a {
+        border-radius:0 !important;
+    }
+
+    .sidebar_content_wrap.fixed.publishers_sidebar {
+        width:100%;
+    }
+
+    /* Datasets Page Responsive Updates */
+    .main-info {
+        margin-bottom:10px;
+
+        .col-md-2,.col-md-3 {
+            padding:0;
+        }
+    }
+    .dataset-title .col-custom {
+        padding:0;
+    }
+
+    .page-advanced .inner-sidebar .content-pad {
+        padding: 30px 15px 30px 15px;
+    }
+
+    .module-content .page-header {
+        padding-right:0 !important;
+        margin-right:0 !important;
+    }
+
+    .page-advanced .inner-sidebar h4.side-heading {
+        padding-left:15px;
+    }
+    .page-advanced .inner-sidebar .module-shallow p {
+        margin-left:15px;
+    }
+
+    .sidebar-btn {
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+
+    .inner-primary {
+        .module .module-content .nav-tabs-plain {
+            margin-bottom:20px;
+        }
+    }
+
+    .page-advanced .inner-sidebar .sidebar-nav li a {
+        padding:15px;
+    }
+
+    
+    .wrapper.no-nav {
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    //Fixing the form actions of core CKAN on admin pages
+    .form-actions .control-required-message {
+        width:100%;
+    }
+    .form-actions .btn {
+        margin-right:10px;
+    }
+
+    .full-height-pg {
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .resource-view {
+        width:100% !important;
+        overflow-x: scroll !important;
+    }
+}
+
+// For devices large than 1920px panels
+@media screen and (min-width:1920px){
+    @include customGridWidths(15%);
+}
+
+// For devices smaller than 1024px
+
+@media screen and (max-width:1023px){
+
+    // Chaning the Wrapper properties to support the nav tabs better
+    .wrapper-custom .page-header .nav-tabs {
+        width:100%;
+        margin:0;
+    }
+    .wrapper-custom .page-header .nav-tabs>li {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .wrapper-custom .page-header .nav-tabs>li:last-child {
+        margin-bottom:0;
+    }
+
+    .wrapper-custom .page-header .nav-tabs>li.active>a {
+        border-radius:0 !important;
+    }
+
+
+    .page-advanced .inner-primary {
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+    .page-advanced .inner-primary {
+        width:100%;
+    }
+
+
+    .dropdown.sort-dropdown {
+        display:inline-block;
+    }
+
+}
+
+// For devices between 768px and 1200px
+
+@media screen and (min-width:768px) and (max-width:1200px){
+
+    //Header searchbar widths updated for better experience on smaller screens
+    header.masthead .site-search {
+        width: 32%;
+    }
+
+    header.masthead .nav > li {
+        padding: 0 10px;
+    }
+
+    .hero {
+        .hero-content {
+            padding:40px 20px 0 20px;
+        }
+    }
+
+    @include customGridWidths(30%); 
+
+
+    .home-categories, .trending-new {
+        margin-right:30px;
+        margin-left:30px;
+    }
+
+    header.masthead {
+        .nav-logo {
+            margin-right:10px;
+        }
+    }
+
+}
+
+// For devices between 1200px and 1920px
+@media screen and (min-width:1200px) and (max-width:1919px){
+    @include customGridWidths(20.5%);
+}
+
+
+@media screen and (min-width:1300px) and (max-width:1500px){
+    .stages li {
+        padding: 10px 10px;
+    }
+
+    .stages li .highlight {
+        padding: 10px 12px 10px 45px;
+        font-size:13px;
+    }
+}
+
+@media screen and (min-width:1000px) and (max-width:1299px){
+    .stages li {
+        padding: 10px 10px;
+    }
+    
+    .stages li .highlight {
+        padding: 10px 12px 10px 45px;
+        font-size:11px;
+    }
+}
+
+@media screen and (max-width:999px) {
+    .stages li {
+        text-align: center;
+    }
+}

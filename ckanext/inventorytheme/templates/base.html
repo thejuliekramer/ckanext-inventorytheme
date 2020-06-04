@@ -1,0 +1,22 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+  {% resource 'inventorytheme/css/uswds.css' %}
+  {% resource 'inventorytheme/css/theme/styles.css' %}
+  {% resource 'inventorytheme/css/recline.css' %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% resource 'inventorytheme/js/uswds.js' %}
+  {% resource 'inventorytheme/js/particles.js' %}
+  {% resource 'inventorytheme/js/simplebar.js' %}
+  {% resource 'inventorytheme/js/main.js' %}
+  {% resource 'inventorytheme/js/select-tags.js' %}
+
+  {% resource 'inventorytheme/js/underscore.js' %}
+  {% resource 'inventorytheme/js/backbone.js' %}
+  {% resource 'inventorytheme/js/recline.js' %}
+
+{% endblock %}

@@ -1,0 +1,120 @@
+/* Admin Pages styling */
+.container-fluid {
+    .row {
+       margin-left: 0; 
+       margin-right: 0;
+    }
+}
+
+.stages li {
+    width:30%;
+}
+
+//Smaller fixes to admin screens including page headers, input fields etc
+.control-large input {
+    border-radius:0;
+}
+
+.editor textarea {
+    border-radius:0;
+}
+
+fieldset {
+    border:0;
+}
+
+.page-header {
+    background-color:transparent;
+}
+
+.stages li.active .highlight {
+    color: #ffffff;
+    background: $theme-color-blue;
+}
+
+.stages li.active:after {
+    border-top-color:$theme-color-blue;
+    border-bottom-color: $theme-color-blue;
+}
+
+.stages li.active:before {
+    color: $theme-color-main;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    padding:7px 16px;
+}
+
+.row-fluid .controls {
+    margin-top:10px;
+}
+
+
+//Fixes to profile page images
+.context-info .image img {
+    width:auto;
+    height:auto;
+    max-height: 150px;
+}
+
+.resource-item {
+    .checkbox {
+        display:none;
+    }
+}
+
+.wrapper {
+    .nav-tabs > li > a {
+        width:100%;
+    }
+}
+
+.form-err {
+    position: relative;
+    top: 6px;
+    font-size: .9em;
+    color: #d20000;
+}
+
+.account_masthead {
+    margin-top: -11px;
+    width: 18px;
+
+    ul {
+        padding:0;
+        margin:0;
+        li {
+            display: block;
+            padding-bottom: 13.5px;
+        }
+
+        li:last-child {
+            padding-bottom:0;
+        }
+    }
+
+    .col-links-1,.col-links-2 {
+        width:36%;
+        float:left;
+        padding:40px 10px 40px 40px;
+        overflow:hidden;
+
+        ul {
+            li {
+                a {
+                    color:$theme-color-main;
+
+                    span {
+                        color: color($theme-color-secondary);
+                        font-size: 0.75rem;
+                        padding-left: 25px;
+                    }
+                }
+
+                a:hover {
+                    color:$theme-color-alternate;
+                }
+            }
+        }
+    }
+}
